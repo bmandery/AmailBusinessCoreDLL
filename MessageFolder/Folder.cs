@@ -1,0 +1,75 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace AMailBuisnessCore.MessageFolder
+{
+    /// <summary>
+    /// Folder class, inherit iFolder.
+    /// </summary>
+    public class Folder : iFolder
+    {
+        /// <summary>
+        /// Can be used to spool up a folder based on its ID
+        /// </summary>
+        /// <param name="ID"></param>
+        public Folder(int ID) { this.ID = ID; /*Load Folder contents*/ }
+        /// <summary>
+        /// Full constructor
+        /// </summary>
+        /// <param name="ID"></param>
+        /// <param name="Name"></param>
+        /// <param name="MessageCount"></param>
+        /// <param name="Created"></param>
+        /// <param name="OwnerID">Owner of the folder</param>
+        /// <param name="ParentFolderID">The folders parent if there is one Nullable</param>
+        public Folder(int ID, string Name, int MessageCount, int OwnerID, int? ParentFolderID, DateTime Created)
+        {
+            this.ID = ID;
+            this.Name = Name;
+            this.MessageCount = MessageCount;
+            this.Created = Created;
+            this.OwnerID = OwnerID;
+            this.ParentFolderID = ParentFolderID;
+        }
+
+        /// <summary>
+        /// Create and save a new folder for a user/owner
+        /// </summary>
+        /// <param name="Name"></param>
+        /// <param name="OwnerID"></param>
+        /// <param name="ParentFolderID">Nullable</param>
+        public Folder(string Name, int OwnerID, int? ParentFolderID=null)
+        {
+            this.Name = Name;
+            this.OwnerID = OwnerID;
+            this.ParentFolderID = ParentFolderID;
+        }
+        /// <summary>
+        /// ID of the current folder
+        /// </summary>
+        public int ID { get; }
+        /// <summary>
+        /// Name of the current folder
+        /// </summary>
+        public string Name { get; }
+        /// <summary>
+        /// Message count of the current folder
+        /// </summary>
+        public int MessageCount { get; }
+        /// <summary>
+        /// Date created of the current folder
+        /// </summary>
+        public DateTime Created { get; }
+
+        /// <summary>
+        /// The owner of this folder
+        /// </summary>
+        public int OwnerID { get; }
+
+        /// <summary>
+        /// The parent of this folder. Can be null
+        /// </summary>
+        public int? ParentFolderID { get; protected set; }
+    }
+}
