@@ -35,5 +35,10 @@ namespace AMailBuisnessCore.MessageFolder
         /// The parent of this folder. Can be null
         /// </summary>
         int? ParentFolderID { get; }
+
+        /// <summary>
+        /// Indicates if this is a permanent folder or not
+        /// </summary>
+        Boolean Permanent { get; }
     }
 }

@@ -23,7 +23,8 @@ namespace AMailBuisnessCore.MessageFolder
         /// <param name="Created"></param>
         /// <param name="OwnerID">Owner of the folder</param>
         /// <param name="ParentFolderID">The folders parent if there is one Nullable</param>
-        public Folder(int ID, string Name, int MessageCount, int OwnerID, int? ParentFolderID, DateTime Created)
+        /// <param name="PermanentFolder">Indicates if this is permanent folder or not</param>
+        public Folder(int ID, string Name, int MessageCount, int OwnerID, int? ParentFolderID, Boolean PermanentFolder, DateTime Created)
         {
             this.ID = ID;
             this.Name = Name;
@@ -31,6 +32,7 @@ namespace AMailBuisnessCore.MessageFolder
             this.Created = Created;
             this.OwnerID = OwnerID;
             this.ParentFolderID = ParentFolderID;
+            this.Permanent = PermanentFolder;
         }
 
         /// <summary>
@@ -71,5 +73,13 @@ namespace AMailBuisnessCore.MessageFolder
         /// The parent of this folder. Can be null
         /// </summary>
         public int? ParentFolderID { get; protected set; }
+
+
+        /// <summary>
+        /// Indicates if this is a permanent folder or not
+        /// </summary>
+        public Boolean Permanent { get; }
+
+
     }
 }
