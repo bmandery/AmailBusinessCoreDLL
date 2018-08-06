@@ -5,6 +5,19 @@ using System.Text;
 namespace AMailBuisnessCore.MessageFolder
 {
     /// <summary>
+    /// 
+    /// </summary>
+    public enum FolderType
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        INBOX=1
+        , SENT=2
+        , TRASH=3
+        , USER_DEFINED=4
+    }
+    /// <summary>
     /// Folder class, inherit iFolder.
     /// </summary>
     public class Folder : iFolder
@@ -13,7 +26,7 @@ namespace AMailBuisnessCore.MessageFolder
         /// Can be used to spool up a folder based on its ID
         /// </summary>
         /// <param name="ID"></param>
-        public Folder(int ID) { this.ID = ID; /*Load Folder contents*/ }
+        public Folder(int ID) { this.ID = ID; /*Load Folder contents*/}
         /// <summary>
         /// Full constructor
         /// </summary>
@@ -24,7 +37,8 @@ namespace AMailBuisnessCore.MessageFolder
         /// <param name="OwnerID">Owner of the folder</param>
         /// <param name="ParentFolderID">The folders parent if there is one Nullable</param>
         /// <param name="PermanentFolder">Indicates if this is permanent folder or not</param>
-        public Folder(int ID, string Name, int MessageCount, int OwnerID, int? ParentFolderID, Boolean PermanentFolder, DateTime Created)
+        /// <param name="type">The folder type -- refer to FolderType enum for types</param>
+        public Folder(int ID, string Name, int MessageCount, int OwnerID, int? ParentFolderID, Boolean PermanentFolder, FolderType type, DateTime Created)
         {
             this.ID = ID;
             this.Name = Name;
@@ -33,6 +47,7 @@ namespace AMailBuisnessCore.MessageFolder
             this.OwnerID = OwnerID;
             this.ParentFolderID = ParentFolderID;
             this.Permanent = PermanentFolder;
+            this.Type = type;
         }
 
         /// <summary>
@@ -79,6 +94,13 @@ namespace AMailBuisnessCore.MessageFolder
         /// Indicates if this is a permanent folder or not
         /// </summary>
         public Boolean Permanent { get; }
+
+        /// <summary>
+        /// Get the folder type, this only appliles
+        /// </summary>
+        public FolderType Type { get; }
+
+        
 
 
     }

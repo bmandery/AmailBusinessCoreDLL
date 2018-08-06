@@ -40,5 +40,10 @@ namespace AMailBuisnessCore.MessageFolder
         /// Indicates if this is a permanent folder or not
         /// </summary>
         Boolean Permanent { get; }
+
+        /// <summary>
+        /// The type of folder
+        /// </summary>
+        FolderType Type { get; }
     }
 }
