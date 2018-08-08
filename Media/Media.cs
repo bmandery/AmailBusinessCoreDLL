@@ -24,7 +24,7 @@ namespace AMailBuisnessCore.Media
             this.Content = Content;
             this.Name = Name;
             this.ContentType = ContentType;
-            this.Extension = Name.Substring(Name.IndexOf('.') + 1, Name.Length - Name.IndexOf('.') - 1);
+            this.Extension = Name.Substring(Name.LastIndexOf('.') + 1, Name.Length - Name.LastIndexOf('.') - 1);
         }
         /// <summary>
         /// Full constuctor 
