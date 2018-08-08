@@ -10,29 +10,44 @@ namespace AMailBuisnessCore.Message
     public enum MessageStatus
     {
         /// <summary>
-        /// 
+        /// New Message Status
         /// </summary>
-        NEW=0,
+        NEW = 0,
+
         /// <summary>
-        /// 
+        /// Sent Message Status
         /// </summary>
-        Sent=1,
+        SENT = 1,
+
         /// <summary>
-        /// 
+        /// Unread Message Status
         /// </summary>
-        UNREAD=2,
+        UNREAD = 2,
+
         /// <summary>
-        /// 
+        /// Archived (trashed) Message Status
         /// </summary>
-        ARCHIVED=4,
+        ARCHIVED = 4,
+
         /// <summary>
-        /// 
+        /// Forwarded Message Status
         /// </summary>
-        FORWARDED=8,
+        FORWARDED = 8,
+
         /// <summary>
-        /// 
+        /// Attachment y/n Status
         /// </summary>
-        CONTAINS_ATTACHMENT=16
+        CONTAINS_ATTACHMENT = 16,
+
+        /// <summary>
+        /// Message Replied Flag
+        /// </summary>
+        REPLIED = 32,
+
+        /// <summary>
+        /// Message Read Status
+        /// </summary>
+        READ = 64        
     }
     /// <summary>
     /// Interface for all message objects
@@ -43,31 +58,38 @@ namespace AMailBuisnessCore.Message
         /// ID of the current mesasge
         /// </summary>
         int ID { get; }
+        
         /// <summary>
         /// Author ID of the current message
         /// </summary>
         int AuthorID { get; }
+        
         /// <summary>
         /// Receipient ID of the current message
         /// </summary>
         int ReceipientID { get; }
+        
         /// <summary>
         /// Subject of the current message
         /// </summary>
         string Subject { get; }
+        
         /// <summary>
         /// Body of the current message
         /// </summary>
         string Body { get; }
+        
         /// <summary>
-        /// Status codes of the current message(each bits means sometime)
-        /// 0=new
+        /// Status codes of the current message(each bit means something)
+        /// Ex. 0=NEW
         /// </summary>
         int Status { get; }
+        
         /// <summary>
         /// GUID of the current message
         /// </summary>
         string GUID { get; }
+
         /// <summary>
         /// Time the message was sent
         /// </summary>
