@@ -31,10 +31,6 @@ namespace AMailBuisnessCore.User
             this.PassWord = PassWord;
             this.Permission = UserPermission.Standard;
             this.DefaultFolder = DefaultFolderID;
-        }       
-
-
-
-
+        }     
     }
 }

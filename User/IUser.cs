@@ -13,6 +13,7 @@ namespace AMailBuisnessCore.User
         /// Standard User Roll ID
         /// </summary>
         Standard = 1,
+        
         /// <summary>
         ///  Admin User Roll ID
         /// </summary>
@@ -28,18 +29,22 @@ namespace AMailBuisnessCore.User
         /// 
         /// </summary>
         int UserID { get; }
+        
         /// <summary>
         /// 
         /// </summary>
         string UserName { get; }
+        
         /// <summary>
         /// 
         /// </summary>
         string PassWord { get; }
+        
         /// <summary>
         /// 
         /// </summary>
         int LoginCount { get; }
+        
         /// <summary>
         /// 
         /// </summary>
