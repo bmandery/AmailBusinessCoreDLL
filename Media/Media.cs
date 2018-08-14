@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.IO;
 
 namespace AMailBuisnessCore.Media
@@ -41,7 +39,13 @@ namespace AMailBuisnessCore.Media
         /// <param name="Created"></param>
         public Media(int ID, string Name, byte[] Content, string GUID, string ContentType, string Extension, DateTime Created)
         {
-
+            this.ID = ID;
+            this.Name = Name;
+            this.Content = Content;
+            this.GUID = GUID;
+            this.ContentType = ContentType;
+            this.Extension = Extension;
+            this.Created = Created;
         }
 
         /// <summary>
@@ -103,5 +107,10 @@ namespace AMailBuisnessCore.Media
         /// 
         /// </summary>
         public DateTime Created { get; protected set; }
+
+        /// <summary>
+        /// The Memory stream for this piece of media
+        /// </summary>
+        public System.IO.MemoryStream MediaStream { get => new System.IO.MemoryStream(this.Content); }
     }
 }

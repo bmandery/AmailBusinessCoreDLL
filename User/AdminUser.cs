@@ -20,7 +20,9 @@ namespace AMailBuisnessCore.User
         /// <param name="UserID">Users ID in the db</param>
         /// <param name="GUID">The GUID assigned to the person when saved to the db</param>
         /// <param name="DefaultFolderID">Default folder to view when current user views their inbox</param>
-        public AdminUser(int UserID, string FirstName, string LastName, DateTime? DateOfBirth, string UserName, string Password, string GUID, int DefaultFolderID)
+        /// <param name="LastLogin">Date the user lasted logged in</param>
+        /// <param name="LoginCount">The number of logins for the current user</param>
+        public AdminUser(int UserID, string FirstName, string LastName, DateTime? DateOfBirth, string UserName, string Password, string GUID, int DefaultFolderID, DateTime LastLogin, int LoginCount)
         {
             this.UserID = UserID;
             base.FirstName = FirstName;
@@ -31,6 +33,8 @@ namespace AMailBuisnessCore.User
             this.PassWord = PassWord;
             this.Permission = UserPermission.Admin;
             this.DefaultFolder = DefaultFolderID;
+            this.LastLogin = LastLogin;
+            this.LoginCount = LoginCount;
         }
     }
 }

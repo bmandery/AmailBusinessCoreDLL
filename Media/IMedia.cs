@@ -12,6 +12,7 @@ namespace AMailBuisnessCore.Media
         string GUID { get; }
         string ContentType { get; }
         string Extension { get; }
+        System.IO.MemoryStream MediaStream { get; }
         DateTime Created { get; }
     }
 }

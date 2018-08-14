@@ -67,7 +67,7 @@ namespace AMailBuisnessCore.Message
         /// <summary>
         /// Receipient ID of the current message
         /// </summary>
-        int ReceipientID { get; }
+        int RecipientID { get; }
         
         /// <summary>
         /// Subject of the current message
@@ -104,5 +104,15 @@ namespace AMailBuisnessCore.Message
         /// Full name of the author of the current message
         /// </summary>
         string AuthorFullName { get; }
+
+        /// <summary>
+        /// Full name or the Receipient
+        /// </summary>
+        string RecipientFullName { get; }
+
+        /// <summary>
+        /// User name of the receipient
+        /// </summary>
+        string RecipientUserName { get; }
     }
 }

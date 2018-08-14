@@ -16,56 +16,60 @@ namespace AMailBuisnessCore.Message
         /// <param name="Subject"></param>
         /// <param name="Body"></param>
         /// <param name="AuthorID"></param>
-        /// <param name="ReceipientID"></param>
-        /// <param name="Status"></param>
-        /// <param name="GUID"></param>
-        /// <param name="Sent"></param>
-        /// <param name="AuthorFullName"></param>
-        /// <param name="AuthorUserName"></param>
-        public Message(int ID, string Subject, string Body, int AuthorID, int ReceipientID, int Status, string GUID, string AuthorUserName, string AuthorFullName, DateTime Sent)
-        {
-            this.ID = ID;
-            this.Subject = Subject;
-            this.Body = Body;
-            this.AuthorID = AuthorID;
-            this.ReceipientID = ReceipientID;
-            this.Status = Status;
-            this.GUID = GUID;
-            this.AuthorUserName = AuthorUserName;
-            this.AuthorFullName = AuthorFullName;
-            this.Sent = Sent;
-        }
-
-        /// <summary>
-        /// Constructor w/ media attachment data
-        /// </summary>
-        /// <param name="ID"></param>
-        /// <param name="Subject"></param>
-        /// <param name="Body"></param>
-        /// <param name="AuthorID"></param>
         /// <param name="RecipientID"></param>
         /// <param name="Status"></param>
         /// <param name="GUID"></param>
-        /// <param name="AuthorUserName"></param>
-        /// <param name="AuthorFullName"></param>
         /// <param name="Sent"></param>
-        /// <param name="MediaID"></param>
-        /// <param name="MediaName"></param>
-        public Message(int ID, string Subject, string Body, int AuthorID, int RecipientID, int Status, string GUID, string AuthorUserName, string AuthorFullName, DateTime Sent, int MediaID, string MediaName)
+        /// <param name="AuthorFullName"></param>
+        /// <param name="AuthorUserName"></param>
+        /// <param name="RecipientFullName">Full name of the receipient</param>
+        /// <param name="RecipientUserName">User name of the receipient</param>
+        public Message(int ID, string Subject, string Body, int AuthorID, int RecipientID, int Status, string GUID, string AuthorUserName, string AuthorFullName, string RecipientFullName, string RecipientUserName, DateTime Sent)
         {
             this.ID = ID;
             this.Subject = Subject;
             this.Body = Body;
             this.AuthorID = AuthorID;
-            this.ReceipientID = ReceipientID;
+            this.RecipientID = RecipientID;
             this.Status = Status;
             this.GUID = GUID;
             this.AuthorUserName = AuthorUserName;
             this.AuthorFullName = AuthorFullName;
             this.Sent = Sent;
-            this.MediaID = MediaID;
-            this.MediaName = MediaName;
+            this.RecipientFullName = RecipientFullName;
+            this.RecipientUserName = RecipientUserName;
         }
+
+        ///// <summary>
+        ///// Constructor w/ media attachment data
+        ///// </summary>
+        ///// <param name="ID"></param>
+        ///// <param name="Subject"></param>
+        ///// <param name="Body"></param>
+        ///// <param name="AuthorID"></param>
+        ///// <param name="RecipientID"></param>
+        ///// <param name="Status"></param>
+        ///// <param name="GUID"></param>
+        ///// <param name="AuthorUserName"></param>
+        ///// <param name="AuthorFullName"></param>
+        ///// <param name="Sent"></param>
+        ///// <param name="MediaID"></param>
+        ///// <param name="MediaName"></param>
+        //public Message(int ID, string Subject, string Body, int AuthorID, int RecipientID, int Status, string GUID, string AuthorUserName, string AuthorFullName, DateTime Sent, int MediaID, string MediaName)
+        //{
+        //    this.ID = ID;
+        //    this.Subject = Subject;
+        //    this.Body = Body;
+        //    this.AuthorID = AuthorID;
+        //    this.ReceipientID = ReceipientID;
+        //    this.Status = Status;
+        //    this.GUID = GUID;
+        //    this.AuthorUserName = AuthorUserName;
+        //    this.AuthorFullName = AuthorFullName;
+        //    this.Sent = Sent;
+        //    this.MediaID = MediaID;
+        //    this.MediaName = MediaName;
+        //}
 
         /// <summary>
         /// Database ID of the current message
@@ -80,7 +84,7 @@ namespace AMailBuisnessCore.Message
         /// <summary>
         /// Receipient ID of the current message
         /// </summary>
-        public int ReceipientID { get; }
+        public int RecipientID { get; }
             
         /// <summary>
         /// Subject of the current message
@@ -126,5 +130,15 @@ namespace AMailBuisnessCore.Message
         /// Name of the media file attachment
         /// </summary>
         public string MediaName { get; }
+
+        /// <summary>
+        /// Full name or the Receipient
+        /// </summary>
+        public string RecipientFullName { get; }
+
+        /// <summary>
+        /// User name of the receipient
+        /// </summary>
+        public string RecipientUserName { get; }
     }
 }
