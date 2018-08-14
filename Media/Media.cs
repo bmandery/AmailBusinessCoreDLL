@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace AMailBuisnessCore.Media
 {
@@ -13,6 +14,7 @@ namespace AMailBuisnessCore.Media
         /// 
         /// </summary>
         public Media() { }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -26,6 +28,7 @@ namespace AMailBuisnessCore.Media
             this.ContentType = ContentType;
             this.Extension = Name.Substring(Name.LastIndexOf('.') + 1, Name.Length - Name.LastIndexOf('.') - 1);
         }
+        
         /// <summary>
         /// Full constuctor 
         /// </summary>
@@ -46,7 +49,7 @@ namespace AMailBuisnessCore.Media
         /// </summary>
         /// <param name="s">The stream to read from</param>
         /// <returns>byte[] array</returns>
-        public static byte[] ToByteArray(System.IO.Stream s)
+        public static byte[] ToByteArray(Stream s)
         {
             //Create byte array
             byte[] mediaBits = new byte[s.Length];
@@ -55,7 +58,7 @@ namespace AMailBuisnessCore.Media
             {
                 s.Read(mediaBits, 0, (int)s.Length);
             }
-            catch(System.IO.IOException)
+            catch(IOException)
             {
                 //Throw exception to preserve the stack trace
                 throw;
@@ -65,30 +68,37 @@ namespace AMailBuisnessCore.Media
             return mediaBits;
             
         }
+
         /// <summary>
         /// 
         /// </summary>
         public string Name { get; protected set; }
+        
         /// <summary>
         /// 
         /// </summary>
         public byte[] Content { get; protected set; }
+        
         /// <summary>
         /// 
         /// </summary>
         public int ID { get; protected set; }
+        
         /// <summary>
         /// 
         /// </summary>
         public string GUID { get; protected set; }
+        
         /// <summary>
         /// 
         /// </summary>
         public string ContentType { get; protected set; }
+        
         /// <summary>
         /// 
         /// </summary>
         public string Extension { get; protected set; }
+        
         /// <summary>
         /// 
         /// </summary>

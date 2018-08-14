@@ -13,14 +13,17 @@ namespace AMailBuisnessCore.MessageFolder
         /// ID of the current folder
         /// </summary>
         int ID { get; }
+        
         /// <summary>
         /// Name of the current folder
         /// </summary>
         string Name { get; }
+        
         /// <summary>
         /// Message count in the current folder
         /// </summary>
         int MessageCount { get; }
+        
         /// <summary>
         /// Date current folder was created
         /// </summary>

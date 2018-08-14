@@ -17,6 +17,7 @@ namespace AMailBuisnessCore.MessageFolder
         , TRASH=3
         , USER_DEFINED=4
     }
+    
     /// <summary>
     /// Folder class, inherit iFolder.
     /// </summary>
@@ -27,6 +28,7 @@ namespace AMailBuisnessCore.MessageFolder
         /// </summary>
         /// <param name="ID"></param>
         public Folder(int ID) { this.ID = ID; /*Load Folder contents*/}
+        
         /// <summary>
         /// Full constructor
         /// </summary>
@@ -62,18 +64,22 @@ namespace AMailBuisnessCore.MessageFolder
             this.OwnerID = OwnerID;
             this.ParentFolderID = ParentFolderID;
         }
+        
         /// <summary>
         /// ID of the current folder
         /// </summary>
         public int ID { get; }
+        
         /// <summary>
         /// Name of the current folder
         /// </summary>
         public string Name { get; }
+        
         /// <summary>
         /// Message count of the current folder
         /// </summary>
         public int MessageCount { get; }
+        
         /// <summary>
         /// Date created of the current folder
         /// </summary>
@@ -88,7 +94,6 @@ namespace AMailBuisnessCore.MessageFolder
         /// The parent of this folder. Can be null
         /// </summary>
         public int? ParentFolderID { get; protected set; }
-
 
         /// <summary>
         /// Indicates if this is a permanent folder or not
