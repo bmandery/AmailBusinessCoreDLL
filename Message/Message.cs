@@ -9,6 +9,7 @@ namespace AMailBuisnessCore.Message
     /// </summary>
     public class Message : iMessage
     {
+        private AMailBuisnessCore.Media.MediaCollection _attachmentCollection;
         /// <summary>
         /// Constructor w/o media attachment data
         /// </summary>
@@ -38,6 +39,10 @@ namespace AMailBuisnessCore.Message
             this.Sent = Sent;
             this.RecipientFullName = RecipientFullName;
             this.RecipientUserName = RecipientUserName;
+
+            //Make a call to get attachments
+            //_attachmentCollection = this.MyAttachments;
+
         }
 
         ///// <summary>
@@ -140,5 +145,15 @@ namespace AMailBuisnessCore.Message
         /// User name of the receipient
         /// </summary>
         public string RecipientUserName { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public Media.MediaCollection MyAttachments
+        {
+            get => _attachmentCollection ?? (_attachmentCollection = new Media.MediaCollection(this.ID));
+        }
+
+
     }
 }

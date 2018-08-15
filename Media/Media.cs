@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
+
 
 namespace AMailBuisnessCore.Media
 {
@@ -112,5 +114,61 @@ namespace AMailBuisnessCore.Media
         /// The Memory stream for this piece of media
         /// </summary>
         public System.IO.MemoryStream MediaStream { get => new System.IO.MemoryStream(this.Content); }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public class MediaCollection : System.Collections.CollectionBase
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="MessageID"></param>
+        public MediaCollection(int MessageID)
+        {
+            //Go get media for message
+            AmailDataCore.MediaData _mediaData = new AmailDataCore.MediaData();
+            System.Data.DataTable dt = _mediaData.GetMediaByMessage(MessageID);
+            System.Data.DataView dv = new System.Data.DataView(dt);
+
+            foreach(System.Data.DataRowView drv in dv)
+            {
+                List.Add(new Media(
+                        Int32.Parse(drv["intMediaID"].ToString())
+                        , drv["strName"].ToString()
+                        , (byte[])drv["binMedia"]
+                        , drv["guid"].ToString()
+                        , drv["strContentType"].ToString()
+                        , drv["strExtension"].ToString()
+                        , DateTime.Parse(drv["dtCreated"].ToString())));
+            }
+        }
+        
+        /// <summary>
+        /// Turn the collection into a generic List<<Media>>
+        /// </summary>
+        public List<Media> ToList
+        {
+            //By doing this, it will allow you to use Find(predicate)
+            get
+            {
+                List<Media> media = new List<Media>();
+                foreach(object o in base.List)
+                {
+                    media.Add((Media)o);
+                }
+                return media;
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public Media this[int index]
+        {
+            get { return (Media)List[index]; }
+        }
     }
 }
