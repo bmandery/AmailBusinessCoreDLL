@@ -8,6 +8,7 @@ namespace AMailBuisnessCore.Media
     interface IMedia
     {
         string Name { get; }
+        string ShortName { get; }
         byte[] Content { get; }
         int ID { get; }
         string GUID { get; }

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Collections;
+using System.Drawing;
 
 
 namespace AMailBuisnessCore.Media
@@ -76,38 +77,44 @@ namespace AMailBuisnessCore.Media
             
         }
 
+ 
         /// <summary>
-        /// 
+        /// This contains the . and the extension
         /// </summary>
         public string Name { get; protected set; }
         
         /// <summary>
-        /// 
+        /// Contains just the file name, no extension
+        /// </summary>
+        public string ShortName { get { return Name.Substring(0, Name.LastIndexOf(".") - 1); }  }
+
+        /// <summary>
+        /// The media in a byte array
         /// </summary>
         public byte[] Content { get; protected set; }
         
         /// <summary>
-        /// 
+        /// ID of the media
         /// </summary>
         public int ID { get; protected set; }
         
         /// <summary>
-        /// 
+        /// GUID of the media
         /// </summary>
         public string GUID { get; protected set; }
         
         /// <summary>
-        /// 
+        /// The content type of the media
         /// </summary>
         public string ContentType { get; protected set; }
         
         /// <summary>
-        /// 
+        /// The extension of the media(just the extension does not include the '.'
         /// </summary>
         public string Extension { get; protected set; }
         
         /// <summary>
-        /// 
+        /// Date the media was created
         /// </summary>
         public DateTime Created { get; protected set; }
 
@@ -118,14 +125,14 @@ namespace AMailBuisnessCore.Media
     }
 
     /// <summary>
-    /// 
+    /// Simple collection to hold multiple instances of a media object
     /// </summary>
     public class MediaCollection : CollectionBase
     {
         /// <summary>
-        /// 
+        /// Main contstructor, this will go get all the media for the incoming messageid and fill the collection
         /// </summary>
-        /// <param name="MessageID"></param>
+        /// <param name="MessageID">The message we want the media for</param>
         public MediaCollection(int MessageID)
         {
             //Go get media for message

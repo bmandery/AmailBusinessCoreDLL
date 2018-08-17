@@ -110,5 +110,10 @@ namespace AMailBuisnessCore.Message
         /// User name of the receipient
         /// </summary>
         string RecipientUserName { get; }
+
+        /// <summary>
+        /// The date the message was archived, can be null.
+        /// </summary>
+        DateTime? ArchiveDate { get; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using AMailBuisnessCore.Media;
 
 namespace AMailBuisnessCore.Message
 {
@@ -9,7 +10,7 @@ namespace AMailBuisnessCore.Message
     /// </summary>
     public class Message : iMessage
     {
-        private AMailBuisnessCore.Media.MediaCollection _attachmentCollection;
+        private MediaCollection _attachmentCollection;
         /// <summary>
         /// Constructor w/o media attachment data
         /// </summary>
@@ -25,7 +26,8 @@ namespace AMailBuisnessCore.Message
         /// <param name="AuthorUserName"></param>
         /// <param name="RecipientFullName">Full name of the receipient</param>
         /// <param name="RecipientUserName">User name of the receipient</param>
-        public Message(int ID, string Subject, string Body, int AuthorID, int RecipientID, int Status, string GUID, string AuthorUserName, string AuthorFullName, string RecipientFullName, string RecipientUserName, DateTime Sent)
+        /// <param name="ArchiveDate">The date the message was archived -- Can be null</param>
+        public Message(int ID, string Subject, string Body, int AuthorID, int RecipientID, int Status, string GUID, string AuthorUserName, string AuthorFullName, string RecipientFullName, string RecipientUserName, DateTime Sent, DateTime? ArchiveDate)
         {
             this.ID = ID;
             this.Subject = Subject;
@@ -39,42 +41,8 @@ namespace AMailBuisnessCore.Message
             this.Sent = Sent;
             this.RecipientFullName = RecipientFullName;
             this.RecipientUserName = RecipientUserName;
-
-            //Make a call to get attachments
-            //_attachmentCollection = this.MyAttachments;
-
+            this.ArchiveDate = ArchiveDate;
         }
-
-        ///// <summary>
-        ///// Constructor w/ media attachment data
-        ///// </summary>
-        ///// <param name="ID"></param>
-        ///// <param name="Subject"></param>
-        ///// <param name="Body"></param>
-        ///// <param name="AuthorID"></param>
-        ///// <param name="RecipientID"></param>
-        ///// <param name="Status"></param>
-        ///// <param name="GUID"></param>
-        ///// <param name="AuthorUserName"></param>
-        ///// <param name="AuthorFullName"></param>
-        ///// <param name="Sent"></param>
-        ///// <param name="MediaID"></param>
-        ///// <param name="MediaName"></param>
-        //public Message(int ID, string Subject, string Body, int AuthorID, int RecipientID, int Status, string GUID, string AuthorUserName, string AuthorFullName, DateTime Sent, int MediaID, string MediaName)
-        //{
-        //    this.ID = ID;
-        //    this.Subject = Subject;
-        //    this.Body = Body;
-        //    this.AuthorID = AuthorID;
-        //    this.ReceipientID = ReceipientID;
-        //    this.Status = Status;
-        //    this.GUID = GUID;
-        //    this.AuthorUserName = AuthorUserName;
-        //    this.AuthorFullName = AuthorFullName;
-        //    this.Sent = Sent;
-        //    this.MediaID = MediaID;
-        //    this.MediaName = MediaName;
-        //}
 
         /// <summary>
         /// Database ID of the current message
@@ -149,10 +117,15 @@ namespace AMailBuisnessCore.Message
         /// <summary>
         /// 
         /// </summary>
-        public Media.MediaCollection MyAttachments
+        public MediaCollection MyAttachments
         {
             get => _attachmentCollection ?? (_attachmentCollection = new Media.MediaCollection(this.ID));
         }
+
+        /// <summary>
+        /// The date the message was archived, can be null.
+        /// </summary>
+        public DateTime? ArchiveDate { get; }
 
 
     }
