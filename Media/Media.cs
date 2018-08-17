@@ -1,8 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Collections;
 using System.Drawing;
-
 
 
 namespace AMailBuisnessCore.Media
@@ -121,13 +121,13 @@ namespace AMailBuisnessCore.Media
         /// <summary>
         /// The Memory stream for this piece of media
         /// </summary>
-        public System.IO.MemoryStream MediaStream { get => new System.IO.MemoryStream(this.Content); }
+        public MemoryStream MediaStream { get => new MemoryStream(this.Content); }
     }
 
     /// <summary>
     /// Simple collection to hold multiple instances of a media object
     /// </summary>
-    public class MediaCollection : System.Collections.CollectionBase
+    public class MediaCollection : CollectionBase
     {
         /// <summary>
         /// Main contstructor, this will go get all the media for the incoming messageid and fill the collection
@@ -154,7 +154,7 @@ namespace AMailBuisnessCore.Media
         }
         
         /// <summary>
-        /// Turn the collection into a generic List<<Media>>
+        /// Turn the collection into a generic List of type Media 
         /// </summary>
         public List<Media> ToList
         {

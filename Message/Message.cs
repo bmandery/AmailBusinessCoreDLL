@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using AMailBuisnessCore.Media;
 
 namespace AMailBuisnessCore.Message
 {
@@ -9,7 +10,7 @@ namespace AMailBuisnessCore.Message
     /// </summary>
     public class Message : iMessage
     {
-        private AMailBuisnessCore.Media.MediaCollection _attachmentCollection;
+        private MediaCollection _attachmentCollection;
         /// <summary>
         /// Constructor w/o media attachment data
         /// </summary>
@@ -116,7 +117,7 @@ namespace AMailBuisnessCore.Message
         /// <summary>
         /// 
         /// </summary>
-        public Media.MediaCollection MyAttachments
+        public MediaCollection MyAttachments
         {
             get => _attachmentCollection ?? (_attachmentCollection = new Media.MediaCollection(this.ID));
         }

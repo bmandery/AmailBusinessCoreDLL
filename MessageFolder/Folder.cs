@@ -10,12 +10,24 @@ namespace AMailBuisnessCore.MessageFolder
     public enum FolderType
     {
         /// <summary>
-        /// 
+        /// Folder Inbox
         /// </summary>
-        INBOX=1
-        , SENT=2
-        , TRASH=3
-        , USER_DEFINED=4
+        INBOX = 1,
+
+        /// <summary>
+        /// Folder Sent
+        /// </summary>
+        SENT = 2,
+
+        /// <summary>
+        /// Folder Trash
+        /// </summary>
+        TRASH = 3,
+
+        /// <summary>
+        /// A user created folder
+        /// </summary>
+        USER_DEFINED = 4
     }
     
     /// <summary>
@@ -104,9 +116,6 @@ namespace AMailBuisnessCore.MessageFolder
         /// Get the folder type, this only appliles
         /// </summary>
         public FolderType Type { get; }
-
-        
-
 
     }
 }
