@@ -10,12 +10,12 @@ namespace AMailBuisnessCore.User
     public enum UserPermission
     {
         /// <summary>
-        /// Standard User Roll ID
+        /// Standard User Role ID
         /// </summary>
         Standard = 1,
         
         /// <summary>
-        ///  Admin User Roll ID
+        ///  Admin User Role ID
         /// </summary>
         Admin = 2
     }

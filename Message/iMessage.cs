@@ -42,13 +42,9 @@ namespace AMailBuisnessCore.Message
         /// <summary>
         /// Message Replied Flag
         /// </summary>
-        REPLIED = 32,
-
-        /// <summary>
-        /// Message Read Status
-        /// </summary>
-        READ = 64        
+        REPLIED = 32       
     }
+
     /// <summary>
     /// Interface for all message objects
     /// </summary>

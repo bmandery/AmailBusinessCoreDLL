@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Collections;
 
 
 namespace AMailBuisnessCore.Media
@@ -113,13 +114,13 @@ namespace AMailBuisnessCore.Media
         /// <summary>
         /// The Memory stream for this piece of media
         /// </summary>
-        public System.IO.MemoryStream MediaStream { get => new System.IO.MemoryStream(this.Content); }
+        public MemoryStream MediaStream { get => new MemoryStream(this.Content); }
     }
 
     /// <summary>
     /// 
     /// </summary>
-    public class MediaCollection : System.Collections.CollectionBase
+    public class MediaCollection : CollectionBase
     {
         /// <summary>
         /// 
@@ -146,7 +147,7 @@ namespace AMailBuisnessCore.Media
         }
         
         /// <summary>
-        /// Turn the collection into a generic List<<Media>>
+        /// Turn the collection into a generic List of type Media 
         /// </summary>
         public List<Media> ToList
         {

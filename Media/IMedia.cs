@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace AMailBuisnessCore.Media
 {
@@ -12,7 +13,7 @@ namespace AMailBuisnessCore.Media
         string GUID { get; }
         string ContentType { get; }
         string Extension { get; }
-        System.IO.MemoryStream MediaStream { get; }
+        MemoryStream MediaStream { get; }
         DateTime Created { get; }
     }
 }
